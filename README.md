@@ -10,11 +10,10 @@ CoDeTT Benchmark 用于评测 Turn-Taking（轮次接管）模型在多场景决
 
 ```text
 .
-├── benchmark.py                         # 主评测入口
+├── benchmark.py                         # 主评测入口（统一流程）
 ├── benchmark_qwen3.py                   # Qwen3 接口评测脚本
 ├── benchmark_minicpm.py                 # MiniCPM 本地评测脚本
 ├── benchmark_ke_semantic.py             # KE-SemanticVAD 评测脚本
-├── scripts/filter_test_hard_labels.py   # 标签过滤工具
 ├── _Adapters/                           # 模型适配层
 └── requirements.txt
 ```
@@ -43,7 +42,7 @@ python benchmark.py --out_dir ./outputs --run_name exp1
 - `benchmark.py` 会读取脚本内默认数据集路径（`DEFAULT_DATASETS_EN` / `DEFAULT_DATASETS_ZH`）。
 - 若你本地路径不同，请先修改这些默认路径，以及 `build_default_paths()` 的模型路径。
 
-### 2) Qwen3 评测
+### 2) Qwen3_omini 评测
 
 ```bash
 python benchmark_qwen3.py
@@ -52,7 +51,7 @@ python benchmark_qwen3.py
 说明：
 - 默认从脚本内 `input_files` 读取数据，输出到 `./qwen3`。
 - 可通过环境变量覆盖 API：
-  - `QWEN_API_URL`（默认 `http://localhost:8900/v1/chat/completions`）
+  - `QWEN_API_URL`（默认 `http://localhost:8000/v1/chat/completions`）
   - `QWEN_TIMEOUT`
   - `SEND_MODEL_FIELD`
 
