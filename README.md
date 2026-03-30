@@ -10,13 +10,11 @@ CoDeTT Benchmark 用于评测 Turn-Taking（轮次接管）模型在多场景决
 
 ```text
 .
-├── benchmark.py                         # 主评测入口（统一流程）
+├── benchmark.py                         # 主评测入口
 ├── benchmark_qwen3.py                   # Qwen3 接口评测脚本
 ├── benchmark_minicpm.py                 # MiniCPM 本地评测脚本
 ├── benchmark_ke_semantic.py             # KE-SemanticVAD 评测脚本
 ├── scripts/filter_test_hard_labels.py   # 标签过滤工具
-├── four_class.py                        # 四大类统计工具
-├── smr.py                               # SMR 统计工具
 ├── _Adapters/                           # 模型适配层
 └── requirements.txt
 ```
