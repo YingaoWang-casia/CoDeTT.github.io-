@@ -4,9 +4,9 @@ CoDeTT Benchmark 用于评测 Turn-Taking（轮次接管）模型在多场景决
 
 ## 论文与数据集
 
-- 论文（arXiv）：[CoDeTT: A Context-Aware Decision Benchmark for Turn-Taking Evaluation](https://arxiv.org/abs/2603.25434)
-- 数据集（Hugging Face）：[YingaoWang-casia/CoDeTT](https://huggingface.co/datasets/YingaoWang-casia/CoDeTT)
-- 数据集（ModelScope）：[wyawya/CoDeTT](https://www.modelscope.cn/datasets/wyawya/CoDeTT)
+📄 论文（arXiv）：[CoDeTT: A Context-Aware Decision Benchmark for Turn-Taking Evaluation](https://arxiv.org/abs/2603.25434)
+🤗 数据集（Hugging Face）：[YingaoWang-casia/CoDeTT](https://huggingface.co/datasets/YingaoWang-casia/CoDeTT)
+🔷 数据集（ModelScope）：[wyawya/CoDeTT](https://www.modelscope.cn/datasets/wyawya/CoDeTT)
 
 ## 仓库内容
 
