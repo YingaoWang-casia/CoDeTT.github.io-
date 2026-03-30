@@ -6,15 +6,17 @@ CoDeTT Benchmark 用于评测 Turn-Taking（轮次接管）模型在多场景决
 
 - 论文（arXiv）：[CoDeTT: A Context-Aware Decision Benchmark for Turn-Taking Evaluation](https://arxiv.org/abs/2603.25434)
 - 数据集（Hugging Face）：[YingaoWang-casia/CoDeTT](https://huggingface.co/datasets/YingaoWang-casia/CoDeTT)
+- 数据集（ModelScope）：[wyawya/CoDeTT](https://www.modelscope.cn/datasets/wyawya/CoDeTT)
+
 ## 仓库内容
 
 ```text
 .
 ├── benchmark.py                         # 主评测入口（统一流程）
-├── benchmark_qwen3.py                   # Qwen3 接口评测脚本
+├── benchmark_qwen3.py                   # Qwen3-Omni 接口评测脚本
 ├── benchmark_minicpm.py                 # MiniCPM 本地评测脚本
 ├── benchmark_ke_semantic.py             # KE-SemanticVAD 评测脚本
-├── _Adapters/                           # 模型适配层
+├── four_class.py                        # 四分类统计工具
 └── requirements.txt
 ```
 
@@ -28,7 +30,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-如果想测试大模型的版本，需要安装大模型的单独的环境
+如果要测试大模型版本，建议单独准备对应运行环境（依赖与显存需求通常不同）。
 
 ## 快速开始
 
@@ -42,7 +44,7 @@ python benchmark.py --out_dir ./outputs --run_name exp1
 - `benchmark.py` 会读取脚本内默认数据集路径（`DEFAULT_DATASETS_EN` / `DEFAULT_DATASETS_ZH`）。
 - 若你本地路径不同，请先修改这些默认路径，以及 `build_default_paths()` 的模型路径。
 
-### 2) Qwen3_omini 评测
+### 2) Qwen3-Omni 评测
 
 ```bash
 python benchmark_qwen3.py
@@ -51,7 +53,7 @@ python benchmark_qwen3.py
 说明：
 - 默认从脚本内 `input_files` 读取数据，输出到 `./qwen3`。
 - 可通过环境变量覆盖 API：
-  - `QWEN_API_URL`（默认 `http://localhost:8000/v1/chat/completions`）
+  - `QWEN_API_URL`（默认 `http://localhost:8900/v1/chat/completions`）
   - `QWEN_TIMEOUT`
   - `SEND_MODEL_FIELD`
 
@@ -112,3 +114,4 @@ python scripts/filter_test_hard_labels.py \
 如果你使用了本仓库或 CoDeTT 数据，建议引用论文：
 
 - [https://arxiv.org/abs/2603.25434](https://arxiv.org/abs/2603.25434)
+
