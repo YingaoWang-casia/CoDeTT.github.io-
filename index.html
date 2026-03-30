@@ -218,7 +218,8 @@
 
     .figure-block,
     .table-block,
-    .download-block {
+    .download-block,
+    .result-figure-block {
       margin-top: 28px;
       border: 1px solid #e7e7e7;
       border-radius: 18px;
@@ -229,7 +230,8 @@
     }
 
     .figure-img,
-    .table-img {
+    .table-img,
+    .result-figure-img {
       width: 100%;
       height: auto;
       display: block;
@@ -856,6 +858,28 @@
           <p>
             In addition, CoDeTT introduces <strong>Semantic Misalignment Rate (SMR)</strong> to reveal cases where a model produces the correct action while relying on incorrect semantic reasoning.
           </p>
+        </div>
+
+        <div class="result-figure-block">
+          <img
+            class="result-figure-img"
+            src="CoDeTT_benchmark/image/Table2.png"
+            alt="4-Action ACC Results"
+          />
+          <div class="caption">
+            4-Action ACC Results: Comparison between Chinese (ZH) and English (EN).
+          </div>
+        </div>
+
+        <div class="result-figure-block">
+          <img
+            class="result-figure-img"
+            src="CoDeTT_benchmark/image/Table3.png"
+            alt="Fine-grained ACC and SMR over 14 scenarios"
+          />
+          <div class="caption">
+            Fine-grained ACC and SMR over 14 scenarios (Chinese (ZH) and English (EN)). Best per model in bold.
+          </div>
         </div>
       </section>
 
