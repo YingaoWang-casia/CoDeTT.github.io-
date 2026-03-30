@@ -30,7 +30,6 @@
       margin: 0 auto;
     }
 
-    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -122,7 +121,6 @@
       fill: currentColor;
     }
 
-    /* Content */
     .content {
       padding: 32px 0 90px;
     }
@@ -178,25 +176,19 @@
     .figure-block,
     .table-block {
       margin-top: 28px;
-      border: 1.5px dashed #d8d8d8;
+      border: 1px solid #ececec;
       border-radius: 20px;
-      padding: 28px;
-      background: #fafafa;
+      padding: 20px;
+      background: #ffffff;
       text-align: center;
     }
 
-    .figure-placeholder,
-    .table-placeholder {
+    .figure-img,
+    .table-img {
       width: 100%;
-      min-height: 320px;
+      height: auto;
+      display: block;
       border-radius: 14px;
-      background: linear-gradient(180deg, #f8f8f8 0%, #f0f0f0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8a8a8a;
-      font-size: 22px;
-      letter-spacing: 0.01em;
     }
 
     .caption {
@@ -276,12 +268,6 @@
 
       .watermark {
         display: none;
-      }
-
-      .figure-placeholder,
-      .table-placeholder {
-        min-height: 240px;
-        font-size: 19px;
       }
     }
 
@@ -393,6 +379,17 @@
           例如，同样是“保持沉默”，可能来自于正确识别用户停顿，也可能只是把当前输入误判成背景噪声或 side-talk。
           CoDeTT 希望解决的，正是这种<strong>动作正确但语义理解错误</strong>的问题。
         </p>
+
+        <div class="figure-block">
+          <img
+            class="figure-img"
+            src="CoDeTT_benchmark/image/introduction.png"
+            alt="CoDeTT introduction figure"
+          />
+          <div class="caption">
+            CoDeTT 通过上下文感知和分层诊断视角，对传统 turn-taking benchmark 进行补充。
+          </div>
+        </div>
       </section>
 
       <section class="section">
@@ -426,11 +423,13 @@
         </p>
 
         <div class="figure-block">
-          <div class="figure-placeholder">
-            在这里放数据集构建流程图 / Figure 2
-          </div>
+          <img
+            class="figure-img"
+            src="CoDeTT_benchmark/image/pipline_new.png"
+            alt="CoDeTT dataset construction pipeline"
+          />
           <div class="caption">
-            Figure Placeholder. 你后面可以把这里替换成数据集构建图、taxonomy 图或者整体框架图。
+            Figure 2. CoDeTT 数据集构建流程图。
           </div>
         </div>
       </section>
@@ -459,20 +458,26 @@
 
         <div class="two-col">
           <div class="table-block">
-            <div class="table-placeholder">
-              在这里放主结果表 / Table 2
-            </div>
-            <div class="caption">
-              Result Table Placeholder. 可替换为 4-action ACC 结果表。
+            <img
+              class="table-img"
+              src="CoDeTT_benchmark/image/table2.png"
+              alt="Table 2 results"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            />
+            <div class="caption" style="display:none;">
+              这里可以放 Table 2 的结果图，例如 4-action ACC 结果。
             </div>
           </div>
 
           <div class="table-block">
-            <div class="table-placeholder">
-              在这里放细粒度结果表 / Table 3
-            </div>
-            <div class="caption">
-              Result Table Placeholder. 可替换为 14-scenario ACC / SMR 结果表。
+            <img
+              class="table-img"
+              src="CoDeTT_benchmark/image/table3.png"
+              alt="Table 3 results"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            />
+            <div class="caption" style="display:none;">
+              这里可以放 Table 3 的结果图，例如 14-scenario ACC / SMR 结果。
             </div>
           </div>
         </div>
