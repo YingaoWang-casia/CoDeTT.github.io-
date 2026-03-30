@@ -26,7 +26,7 @@
     }
 
     .page {
-      width: min(1200px, 92vw);
+      width: min(1280px, 92vw);
       margin: 0 auto;
     }
 
@@ -127,7 +127,7 @@
 
     .section {
       margin: 0 auto 72px;
-      max-width: 980px;
+      max-width: 1120px;
     }
 
     .section h2 {
@@ -137,6 +137,14 @@
       font-weight: 500;
       color: #222;
       letter-spacing: -0.02em;
+    }
+
+    .section h3 {
+      margin: 32px 0 12px;
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 500;
+      color: #222;
     }
 
     .section p {
@@ -176,11 +184,12 @@
     .figure-block,
     .table-block {
       margin-top: 28px;
-      border: 1px solid #ececec;
-      border-radius: 20px;
-      padding: 20px;
+      border: 1px solid #e7e7e7;
+      border-radius: 18px;
+      padding: 18px;
       background: #ffffff;
       text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
     .figure-img,
@@ -188,20 +197,14 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 14px;
+      border-radius: 12px;
     }
 
     .caption {
-      margin-top: 14px;
-      font-size: 16px;
+      margin-top: 12px;
+      font-size: 15px;
       color: #666;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
+      text-align: center;
     }
 
     .list {
@@ -213,6 +216,128 @@
       margin: 10px 0;
       font-size: 18px;
       color: #444;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .table-wrap {
+      margin-top: 24px;
+      overflow-x: auto;
+      border: 1px solid #dcdcdc;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .result-table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .result-table th,
+    .result-table td {
+      border: 1px solid #d9d9d9;
+      padding: 10px 12px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .result-table thead th {
+      background: #f5f5f5;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .result-table tbody tr:hover td {
+      background: #fcfcfc;
+    }
+
+    .group-row td {
+      background: #f0f0f0 !important;
+      font-style: italic;
+      font-weight: 600;
+      color: #444;
+      text-align: center !important;
+    }
+
+    .table-caption {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #666;
+      text-align: center;
+    }
+
+    .table-note {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #777;
+      line-height: 1.7;
+    }
+
+    .diag-table {
+      min-width: 1680px;
+      font-size: 13px;
+    }
+
+    .diag-table th,
+    .diag-table td {
+      padding: 8px 10px;
+    }
+
+    .subhead th,
+    .subhead td {
+      background: #fafafa;
+      font-weight: 600;
+    }
+
+    .taxonomy-table {
+      min-width: 1120px;
+      font-size: 15px;
+    }
+
+    .taxonomy-table th,
+    .taxonomy-table td {
+      border: 1px solid #d5d5d5;
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: normal;
+    }
+
+    .taxonomy-table thead th {
+      background: #f3f3f3;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .taxonomy-table td.center,
+    .taxonomy-table th.center {
+      text-align: center;
+    }
+
+    .taxonomy-table td.state {
+      font-weight: 600;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .taxonomy-table td.strategy {
+      font-weight: 600;
+      background: #fcfcfc;
+      text-align: center;
+    }
+
+    .taxonomy-table tr.separator td {
+      border-top: 2px solid #bdbdbd;
     }
 
     .bibtex-box {
@@ -412,6 +537,103 @@
             <p>用于衡量模型是否出现 “action-correct but reason-wrong” 的语义错配现象。</p>
           </div>
         </div>
+
+        <h3>Hierarchical Taxonomy</h3>
+        <div class="table-wrap">
+          <table class="result-table taxonomy-table">
+            <thead>
+              <tr>
+                <th class="center">System state</th>
+                <th class="center">Decision strategy</th>
+                <th class="center">Scenario</th>
+                <th class="center">Number of Samples</th>
+                <th class="center">Operational cue (summary)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="state" rowspan="7">SystemSpeaking</td>
+                <td class="strategy" rowspan="4">Maintain</td>
+                <td>Backchannel</td>
+                <td class="center">1,000(real) + 1,000(syn)</td>
+                <td>User produces short non-floor-taking feedback (e.g., “uh-huh”).</td>
+              </tr>
+              <tr>
+                <td>Invalidation</td>
+                <td class="center">1,000(syn)</td>
+                <td>Non-speech events (cough, impact, background noise bursts).</td>
+              </tr>
+              <tr>
+                <td>Side-talk</td>
+                <td class="center">1,000(syn)</td>
+                <td>Primary user speaks to another person.</td>
+              </tr>
+              <tr>
+                <td>Distraction</td>
+                <td class="center">1,000(syn)</td>
+                <td>Background speech unrelated to dialogue topic.</td>
+              </tr>
+              <tr class="separator">
+                <td class="strategy" rowspan="3">Stop &amp; Listen</td>
+                <td>Interruption</td>
+                <td class="center">1,000(real) + 1,000(syn)</td>
+                <td>User intends to cut in.</td>
+              </tr>
+              <tr>
+                <td>Dismissal</td>
+                <td class="center">1,000(syn)</td>
+                <td>Explicit “stop talking” command directed to system.</td>
+              </tr>
+              <tr>
+                <td>Collaboration</td>
+                <td class="center">1,000(syn)</td>
+                <td>Relevant third party interjects.</td>
+              </tr>
+
+              <tr class="separator">
+                <td class="state" rowspan="7">SystemIdle</td>
+                <td class="strategy" rowspan="2">Takeover</td>
+                <td>Completion</td>
+                <td class="center">1,000(real) + 1,000(syn)</td>
+                <td>User intent is complete.</td>
+              </tr>
+              <tr>
+                <td>Cooperation</td>
+                <td class="center">1,000(syn)</td>
+                <td>Third party utterance is interaction-relevant.</td>
+              </tr>
+              <tr class="separator">
+                <td class="strategy" rowspan="5">Dismiss</td>
+                <td>Incomplete</td>
+                <td class="center">1,000(real) + 1,000(syn)</td>
+                <td>Hesitation/thinking pause.</td>
+              </tr>
+              <tr>
+                <td>Invalidation</td>
+                <td class="center">1,000(syn)</td>
+                <td>Non-speech events (cough, impact, background noise bursts).</td>
+              </tr>
+              <tr>
+                <td>Dismissal</td>
+                <td class="center">1,000(syn)</td>
+                <td>“do not respond / be quiet” instruction.</td>
+              </tr>
+              <tr>
+                <td>Exclusion</td>
+                <td class="center">1,000(syn)</td>
+                <td>Non-target speaker or not addressing the system.</td>
+              </tr>
+              <tr>
+                <td>Side-talk</td>
+                <td class="center">1,000(syn)</td>
+                <td>Primary user speaks to another person.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-caption">
+          Table 1. Hierarchical taxonomy of 14 turn-taking decision scenarios.
+        </div>
       </section>
 
       <section class="section">
@@ -456,30 +678,183 @@
           结果说明，仅看 action accuracy 仍不足以全面评估 turn-taking 能力。
         </p>
 
-        <div class="two-col">
-          <div class="table-block">
-            <img
-              class="table-img"
-              src="CoDeTT_benchmark/image/table2.png"
-              alt="Table 2 results"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-            />
-            <div class="caption" style="display:none;">
-              这里可以放 Table 2 的结果图，例如 4-action ACC 结果。
-            </div>
-          </div>
+        <h3>4 Core Actions</h3>
 
-          <div class="table-block">
-            <img
-              class="table-img"
-              src="CoDeTT_benchmark/image/table3.png"
-              alt="Table 3 results"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-            />
-            <div class="caption" style="display:none;">
-              这里可以放 Table 3 的结果图，例如 14-scenario ACC / SMR 结果。
-            </div>
-          </div>
+        <div class="table-wrap">
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>History</th>
+                <th>Main.</th>
+                <th>S &amp; L</th>
+                <th>Take.</th>
+                <th>Dism.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="6">Chinese · Audio-Input Models</td></tr>
+              <tr><td>Easy turn</td><td>0</td><td>43.98</td><td>7.36</td><td>80.77</td><td>19.35</td></tr>
+              <tr><td>Smart-Turn-v3</td><td>0</td><td>N/A</td><td>N/A</td><td>74.53</td><td>27.51</td></tr>
+              <tr><td>FireRedChat</td><td>0</td><td>N/A</td><td>N/A</td><td>86.67</td><td>6.83</td></tr>
+              <tr><td>NAMO-Turn</td><td>0</td><td>N/A</td><td>N/A</td><td>63.07</td><td>55.91</td></tr>
+
+              <tr><td>Qwen3-Omni</td><td>0</td><td>75.55</td><td>68.29</td><td>50.53</td><td><strong>78.23</strong></td></tr>
+              <tr><td>Qwen3-Omni</td><td>1</td><td>68.07</td><td>74.36</td><td>65.68</td><td>73.32</td></tr>
+              <tr><td>Qwen3-Omni</td><td>3</td><td>48.62</td><td>79.58</td><td>64.34</td><td>75.06</td></tr>
+              <tr><td>Qwen3-Omni</td><td>5</td><td>77.30</td><td>47.40</td><td>61.19</td><td>77.46</td></tr>
+
+              <tr><td>MiniCPM-o-4.5</td><td>0</td><td><strong>93.52</strong></td><td>26.93</td><td>63.08</td><td>58.59</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>1</td><td>80.17</td><td>51.71</td><td>75.32</td><td>50.18</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>3</td><td>77.77</td><td>47.68</td><td>72.42</td><td>55.87</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>5</td><td>71.90</td><td>47.95</td><td>65.69</td><td>61.14</td></tr>
+
+              <tr><td>GPT4o-audio</td><td>0</td><td>87.49</td><td>50.93</td><td>51.07</td><td>76.78</td></tr>
+              <tr><td>GPT4o-audio</td><td>1</td><td>85.83</td><td>45.60</td><td>54.29</td><td>76.29</td></tr>
+              <tr><td>GPT4o-audio</td><td>3</td><td>85.73</td><td>49.75</td><td>68.80</td><td>66.92</td></tr>
+              <tr><td>GPT4o-audio</td><td>5</td><td>86.05</td><td>51.59</td><td>71.38</td><td>63.81</td></tr>
+
+              <tr><td>Gemini3-Pro</td><td>0</td><td>86.84</td><td>80.59</td><td>88.74</td><td>67.15</td></tr>
+              <tr><td>Gemini3-Pro</td><td>1</td><td>82.61</td><td>84.80</td><td>87.33</td><td>68.61</td></tr>
+              <tr><td>Gemini3-Pro</td><td>3</td><td>85.22</td><td>83.66</td><td><strong>89.40</strong></td><td>68.05</td></tr>
+              <tr><td>Gemini3-Pro</td><td>5</td><td>87.37</td><td>80.99</td><td>88.35</td><td>67.55</td></tr>
+
+              <tr class="group-row"><td colspan="6">Chinese · Text-Input Models</td></tr>
+              <tr><td>TEN-Turn</td><td>0</td><td>N/A</td><td>13.31</td><td>72.18</td><td>25.97</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>0</td><td>57.68</td><td>85.98</td><td>46.13</td><td>63.63</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>1</td><td>58.01</td><td>88.25</td><td>57.87</td><td>53.38</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>3</td><td>57.68</td><td><strong>88.72</strong></td><td>43.20</td><td>68.73</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>5</td><td>57.81</td><td>88.58</td><td>39.40</td><td>74.84</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-caption">Table 2a. Performance of baselines on the 4 core actions (Chinese).</div>
+
+        <div class="table-wrap" style="margin-top:28px;">
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>History</th>
+                <th>Main.</th>
+                <th>S &amp; L</th>
+                <th>Take.</th>
+                <th>Dism.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="6">English · Audio-Input Models</td></tr>
+              <tr><td>Easy turn</td><td>0</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+              <tr><td>Smart-Turn-v3</td><td>0</td><td>N/A</td><td>N/A</td><td>58.27</td><td>44.45</td></tr>
+              <tr><td>FireRedChat</td><td>0</td><td>N/A</td><td>N/A</td><td>88.20</td><td>42.62</td></tr>
+              <tr><td>NAMO-Turn</td><td>0</td><td>N/A</td><td>N/A</td><td>78.73</td><td>26.12</td></tr>
+
+              <tr><td>Qwen3-Omni</td><td>0</td><td>76.29</td><td>67.20</td><td>58.70</td><td><strong>80.51</strong></td></tr>
+              <tr><td>Qwen3-Omni</td><td>1</td><td>64.64</td><td>70.61</td><td>70.99</td><td>77.21</td></tr>
+              <tr><td>Qwen3-Omni</td><td>3</td><td>50.14</td><td>76.20</td><td>69.59</td><td>77.43</td></tr>
+              <tr><td>Qwen3-Omni</td><td>5</td><td>44.35</td><td>75.19</td><td>66.18</td><td>79.00</td></tr>
+
+              <tr><td>MiniCPM-o-4.5</td><td>0</td><td><strong>91.97</strong></td><td>36.97</td><td>79.27</td><td>50.04</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>1</td><td>71.83</td><td>60.26</td><td>84.51</td><td>43.59</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>3</td><td>70.86</td><td>60.71</td><td>78.67</td><td>55.48</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>5</td><td>63.69</td><td>66.70</td><td>76.12</td><td>60.15</td></tr>
+
+              <tr><td>GPT4o-audio</td><td>0</td><td>88.15</td><td>51.59</td><td>72.94</td><td>74.95</td></tr>
+              <tr><td>GPT4o-audio</td><td>1</td><td>79.86</td><td>53.31</td><td>70.11</td><td>72.16</td></tr>
+              <tr><td>GPT4o-audio</td><td>3</td><td>79.94</td><td>56.98</td><td>78.80</td><td>68.67</td></tr>
+              <tr><td>GPT4o-audio</td><td>5</td><td>80.00</td><td>59.20</td><td>80.76</td><td>67.50</td></tr>
+
+              <tr><td>Gemini3-Pro</td><td>0</td><td>83.14</td><td>81.73</td><td><strong>93.78</strong></td><td>65.91</td></tr>
+              <tr><td>Gemini3-Pro</td><td>1</td><td>80.90</td><td>84.25</td><td>90.99</td><td>71.34</td></tr>
+              <tr><td>Gemini3-Pro</td><td>3</td><td>81.33</td><td><strong>84.36</strong></td><td>93.18</td><td>68.77</td></tr>
+              <tr><td>Gemini3-Pro</td><td>5</td><td>81.74</td><td>83.05</td><td>93.39</td><td>66.40</td></tr>
+
+              <tr class="group-row"><td colspan="6">English · Text-Input Models</td></tr>
+              <tr><td>TEN-Turn</td><td>0</td><td>N/A</td><td>31.33</td><td>92.53</td><td>18.59</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>0</td><td>58.74</td><td>79.57</td><td>63.67</td><td>54.40</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>1</td><td>59.55</td><td>75.50</td><td>78.13</td><td>48.70</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>3</td><td>59.15</td><td>72.50</td><td>70.00</td><td>58.79</td></tr>
+              <tr><td>KE-SemanticVAD</td><td>5</td><td>58.74</td><td>71.56</td><td>66.73</td><td>65.13</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-caption">Table 2b. Performance of baselines on the 4 core actions (English).</div>
+
+        <h3>Fine-grained Diagnostic Results</h3>
+
+        <div class="table-wrap">
+          <table class="result-table diag-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Model</th>
+                <th rowspan="2">H</th>
+                <th colspan="5">Maintain</th>
+                <th colspan="4">Stop &amp; Listen</th>
+                <th colspan="3">Takeover</th>
+                <th colspan="6">Dismiss / Silence</th>
+              </tr>
+              <tr class="subhead">
+                <th>BC</th><th>Inv.</th><th>Side.</th><th>Dist.</th><th>SMR</th>
+                <th>Int.</th><th>Dism.</th><th>Col.</th><th>SMR</th>
+                <th>Cmp.</th><th>Cop.</th><th>SMR</th>
+                <th>Inc.</th><th>Inv.</th><th>Dism.</th><th>Exc.</th><th>Side.</th><th>SMR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="20">Chinese Results</td></tr>
+
+              <tr><td>Qwen3-Omni</td><td>0</td><td>84.40</td><td>67.60</td><td>45.09</td><td>5.60</td><td>24.65</td><td>45.40</td><td>88.20</td><td>18.84</td><td>27.42</td><td>44.54</td><td>0.00</td><td>41.22</td><td>46.04</td><td>98.80</td><td>82.63</td><td>6.97</td><td>63.60</td><td>26.73</td></tr>
+              <tr><td>Qwen3-Omni</td><td>1</td><td>87.32</td><td>22.00</td><td>18.24</td><td>27.00</td><td>29.05</td><td>53.75</td><td>78.00</td><td>20.04</td><td>30.89</td><td>62.25</td><td>2.84</td><td>35.17</td><td>41.27</td><td>78.57</td><td>78.44</td><td>14.00</td><td>48.49</td><td>31.30</td></tr>
+              <tr><td>Qwen3-Omni</td><td>3</td><td>82.78</td><td>9.02</td><td>8.02</td><td>12.00</td><td>19.93</td><td>62.15</td><td>67.00</td><td>17.40</td><td>34.51</td><td>61.31</td><td>0.61</td><td>36.01</td><td>45.47</td><td>69.56</td><td>84.83</td><td>22.52</td><td>43.69</td><td>30.73</td></tr>
+              <tr><td>Qwen3-Omni</td><td>5</td><td>81.36</td><td>7.82</td><td>7.21</td><td>12.00</td><td>19.95</td><td>58.03</td><td>65.80</td><td>15.60</td><td>36.16</td><td>58.79</td><td>0.80</td><td>35.49</td><td>46.78</td><td>65.20</td><td>80.12</td><td><strong>22.86</strong></td><td>48.30</td><td>33.17</td></tr>
+
+              <tr><td>MiniCPM-o-4.5</td><td>0</td><td><strong>97.25</strong></td><td>24.52</td><td>23.44</td><td>17.14</td><td>47.26</td><td>2.42</td><td>31.26</td><td>0.00</td><td>62.85</td><td>68.22</td><td>1.10</td><td><strong>25.30</strong></td><td>9.65</td><td>48.99</td><td>77.40</td><td>0.20</td><td>60.56</td><td>42.05</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>1</td><td>90.06</td><td>5.30</td><td>10.75</td><td>10.16</td><td>55.93</td><td>22.47</td><td>32.30</td><td>1.35</td><td>62.14</td><td>59.10</td><td><strong>31.78</strong></td><td>34.24</td><td>4.47</td><td>7.52</td><td>93.55</td><td>0.00</td><td>24.88</td><td>50.16</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>3</td><td>94.65</td><td>5.33</td><td>13.49</td><td>11.21</td><td>43.59</td><td>15.52</td><td>38.17</td><td>2.17</td><td>59.74</td><td>59.28</td><td>26.72</td><td>32.08</td><td>2.26</td><td>8.42</td><td>94.55</td><td>0.00</td><td>32.65</td><td>53.49</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>5</td><td>93.14</td><td>4.29</td><td>12.34</td><td>11.74</td><td>39.34</td><td>18.59</td><td>38.11</td><td>2.61</td><td>57.99</td><td>52.67</td><td>26.20</td><td>33.13</td><td>2.33</td><td>12.38</td><td>92.94</td><td>0.42</td><td>36.69</td><td>57.45</td></tr>
+
+              <tr><td>GPT4o-audio</td><td>0</td><td>75.91</td><td>65.40</td><td><strong>70.48</strong></td><td>42.00</td><td>24.66</td><td>36.35</td><td><strong>92.20</strong></td><td>0.80</td><td><strong>23.25</strong></td><td>46.80</td><td>0.00</td><td>40.60</td><td>43.80</td><td><strong>99.40</strong></td><td>90.06</td><td>1.79</td><td><strong>71.60</strong></td><td>24.05</td></tr>
+              <tr><td>GPT4o-audio</td><td>1</td><td>75.03</td><td>19.32</td><td>65.99</td><td>26.60</td><td>39.02</td><td>22.81</td><td>85.57</td><td>1.80</td><td>27.01</td><td>42.34</td><td>6.80</td><td>43.95</td><td>46.34</td><td>53.81</td><td>90.42</td><td>0.84</td><td>70.40</td><td>32.18</td></tr>
+              <tr><td>GPT4o-audio</td><td>3</td><td>87.66</td><td>18.04</td><td>62.22</td><td>23.69</td><td>34.98</td><td>25.83</td><td>83.71</td><td>7.83</td><td>28.32</td><td>60.20</td><td>12.00</td><td>35.85</td><td>39.78</td><td>55.49</td><td>89.62</td><td>0.80</td><td>62.60</td><td>28.38</td></tr>
+              <tr><td>GPT4o-audio</td><td>5</td><td>89.43</td><td>15.89</td><td>58.95</td><td>20.84</td><td>36.13</td><td>28.28</td><td>83.13</td><td>8.08</td><td>28.25</td><td>64.16</td><td>13.60</td><td>33.74</td><td>38.15</td><td>52.43</td><td>88.22</td><td>0.80</td><td>64.00</td><td>26.40</td></tr>
+
+              <tr><td>Gemini3-Pro</td><td>0</td><td>93.51</td><td>52.76</td><td>64.48</td><td><strong>65.65</strong></td><td><strong>14.73</strong></td><td>68.11</td><td>84.06</td><td><strong>21.27</strong></td><td>25.09</td><td><strong>86.89</strong></td><td>14.67</td><td>28.65</td><td>47.44</td><td>88.40</td><td>92.60</td><td>0.00</td><td>56.40</td><td>17.50</td></tr>
+              <tr><td>Gemini3-Pro</td><td>1</td><td>81.64</td><td><strong>68.41</strong></td><td>55.99</td><td>46.87</td><td>18.89</td><td><strong>71.54</strong></td><td>88.93</td><td>12.85</td><td>27.81</td><td>83.00</td><td>6.40</td><td>34.20</td><td><strong>49.05</strong></td><td>95.59</td><td><strong>94.61</strong></td><td>0.00</td><td>57.49</td><td><strong>16.03</strong></td></tr>
+              <tr><td>Gemini3-Pro</td><td>3</td><td>89.95</td><td>56.34</td><td>59.64</td><td>56.45</td><td>17.39</td><td>71.34</td><td>84.24</td><td>20.93</td><td>25.98</td><td>86.60</td><td>11.40</td><td>31.17</td><td>48.80</td><td>91.33</td><td>94.01</td><td>0.00</td><td>58.00</td><td>16.58</td></tr>
+              <tr><td>Gemini3-Pro</td><td>5</td><td>94.43</td><td>50.21</td><td>62.68</td><td>63.89</td><td>16.14</td><td>69.05</td><td>83.20</td><td>20.50</td><td>24.92</td><td>86.30</td><td>14.43</td><td>29.27</td><td>48.18</td><td>87.75</td><td>93.61</td><td>0.20</td><td>57.72</td><td>17.10</td></tr>
+
+              <tr class="group-row"><td colspan="20">English Results</td></tr>
+
+              <tr><td>Qwen3-Omni</td><td>0</td><td>61.93</td><td><strong>67.68</strong></td><td>39.00</td><td>40.80</td><td>29.05</td><td>40.78</td><td>87.55</td><td>23.05</td><td>28.30</td><td>54.42</td><td>1.81</td><td>37.17</td><td>50.20</td><td>98.39</td><td>89.44</td><td>3.01</td><td>60.32</td><td>27.24</td></tr>
+              <tr><td>Qwen3-Omni</td><td>1</td><td>73.08</td><td>19.43</td><td>15.00</td><td>54.80</td><td>27.19</td><td>43.48</td><td>81.33</td><td><strong>26.80</strong></td><td>30.90</td><td>67.80</td><td>8.54</td><td>32.07</td><td>51.20</td><td>83.40</td><td>84.23</td><td>8.78</td><td>49.90</td><td>29.04</td></tr>
+              <tr><td>Qwen3-Omni</td><td>3</td><td>72.18</td><td>11.52</td><td>5.60</td><td>35.80</td><td>21.41</td><td>54.33</td><td>66.67</td><td>22.60</td><td>35.11</td><td>68.31</td><td>2.40</td><td>33.49</td><td>51.65</td><td>75.98</td><td>86.40</td><td>14.61</td><td>47.99</td><td>29.24</td></tr>
+              <tr><td>Qwen3-Omni</td><td>5</td><td>70.16</td><td>9.09</td><td>5.20</td><td>24.40</td><td><strong>19.40</strong></td><td>53.46</td><td>63.86</td><td>21.40</td><td>36.13</td><td>65.53</td><td>1.41</td><td>33.23</td><td><strong>53.31</strong></td><td>74.04</td><td>84.57</td><td><strong>17.08</strong></td><td>49.80</td><td>29.66</td></tr>
+
+              <tr><td>MiniCPM-o-4.5</td><td>0</td><td><strong>96.92</strong></td><td>23.45</td><td>20.41</td><td>14.01</td><td>45.74</td><td>8.00</td><td>47.10</td><td>0.00</td><td>50.59</td><td>83.24</td><td>0.33</td><td><strong>21.85</strong></td><td>3.96</td><td>48.58</td><td>80.25</td><td>0.00</td><td><strong>66.87</strong></td><td>34.56</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>1</td><td>82.59</td><td>5.69</td><td>12.82</td><td>6.29</td><td>55.02</td><td>32.30</td><td>43.06</td><td>3.59</td><td>54.28</td><td>71.41</td><td><strong>33.70</strong></td><td>31.48</td><td>3.13</td><td>15.59</td><td>91.02</td><td>0.00</td><td>28.61</td><td>42.37</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>3</td><td>85.68</td><td>7.35</td><td>17.40</td><td>4.33</td><td>49.19</td><td>33.54</td><td>46.73</td><td>6.70</td><td>50.33</td><td>62.58</td><td>31.61</td><td>33.96</td><td>3.82</td><td>21.68</td><td>90.58</td><td>0.21</td><td>43.59</td><td>49.51</td></tr>
+              <tr><td>MiniCPM-o-4.5</td><td>5</td><td>83.29</td><td>7.21</td><td>13.14</td><td>4.28</td><td>43.62</td><td>40.87</td><td>45.01</td><td>7.93</td><td>50.34</td><td>60.98</td><td>32.40</td><td>32.51</td><td>3.49</td><td>25.36</td><td>90.54</td><td>0.00</td><td>47.40</td><td>51.92</td></tr>
+
+              <tr><td>GPT4o-audio</td><td>0</td><td>85.60</td><td>62.22</td><td><strong>61.92</strong></td><td>47.80</td><td>22.27</td><td>29.17</td><td><strong>94.77</strong></td><td>0.60</td><td><strong>25.46</strong></td><td>70.04</td><td>0.40</td><td>35.90</td><td>44.82</td><td><strong>99.60</strong></td><td>91.83</td><td>0.40</td><td>58.20</td><td>24.35</td></tr>
+              <tr><td>GPT4o-audio</td><td>1</td><td>79.68</td><td>21.66</td><td>61.49</td><td>31.26</td><td>31.42</td><td>30.99</td><td>87.55</td><td>2.21</td><td>28.82</td><td>63.44</td><td>10.60</td><td>34.63</td><td>49.10</td><td>54.45</td><td>89.44</td><td>1.20</td><td>61.60</td><td>29.50</td></tr>
+              <tr><td>GPT4o-audio</td><td>3</td><td>86.14</td><td>22.97</td><td>55.94</td><td>39.64</td><td>27.26</td><td>34.97</td><td>85.34</td><td>7.26</td><td>28.69</td><td>73.78</td><td>21.00</td><td>28.69</td><td>48.07</td><td>55.97</td><td>87.45</td><td>1.83</td><td>59.60</td><td>26.82</td></tr>
+              <tr><td>GPT4o-audio</td><td>5</td><td>88.16</td><td>19.47</td><td>53.82</td><td>39.20</td><td>27.93</td><td>39.38</td><td>81.53</td><td>9.29</td><td>28.18</td><td>77.57</td><td>24.45</td><td>25.64</td><td>45.48</td><td>55.74</td><td>87.05</td><td>1.21</td><td>62.00</td><td>26.62</td></tr>
+
+              <tr><td>Gemini3-Pro</td><td>0</td><td>75.33</td><td>51.62</td><td>49.40</td><td><strong>59.92</strong></td><td>23.73</td><td>68.10</td><td>79.92</td><td>25.30</td><td>27.40</td><td><strong>91.56</strong></td><td>15.43</td><td>29.48</td><td>48.00</td><td>83.97</td><td>89.64</td><td>0.00</td><td>52.00</td><td>18.66</td></tr>
+              <tr><td>Gemini3-Pro</td><td>1</td><td>64.23</td><td>66.19</td><td>48.60</td><td>51.11</td><td>27.24</td><td>69.37</td><td>90.12</td><td>14.23</td><td>27.92</td><td>87.59</td><td>7.01</td><td>33.24</td><td>49.50</td><td>95.98</td><td><strong>92.43</strong></td><td>0.40</td><td>55.42</td><td>19.78</td></tr>
+              <tr><td>Gemini3-Pro</td><td>3</td><td>69.94</td><td>58.99</td><td>50.40</td><td>56.22</td><td>24.88</td><td><strong>69.91</strong></td><td>79.72</td><td>24.60</td><td>27.69</td><td>90.46</td><td>14.00</td><td>30.34</td><td>49.05</td><td>90.56</td><td>90.84</td><td>0.00</td><td>56.20</td><td><strong>18.58</strong></td></tr>
+              <tr><td>Gemini3-Pro</td><td>5</td><td>73.87</td><td>52.73</td><td>50.70</td><td>57.34</td><td>24.51</td><td>67.70</td><td>77.11</td><td>26.05</td><td>28.20</td><td>91.07</td><td>15.00</td><td>29.69</td><td>48.04</td><td>85.97</td><td>90.24</td><td>0.00</td><td>50.20</td><td>19.01</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-caption">
+          Table 3. Fine-grained diagnostic ACC and SMR results across 14 scenarios.
+        </div>
+
+        <div class="table-note">
+          注：BC = Backchannel，Inv. = Invalidation，Side. = Side-talk，Dist. = Distraction，Int. = Interruption，
+          Dism. = Dismissal，Col. = Collaboration，Cmp. = Completion，Cop. = Cooperation，Inc. = Incomplete，Exc. = Exclusion。
         </div>
       </section>
 
