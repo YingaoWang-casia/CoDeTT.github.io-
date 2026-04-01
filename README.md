@@ -113,7 +113,7 @@ python scripts/filter_test_hard_labels.py \
 
 如果你使用了本仓库或 CoDeTT 数据，建议引用论文：
 
-@misc{shen2026codettcontextawaredecisionbenchmark,
+## @misc{shen2026codettcontextawaredecisionbenchmark,
       title={CoDeTT: A Context-Aware Decision Benchmark for Turn-Taking Evaluation}, 
       author={Huan Shen and Yingao Wang and Shangkun Huang and Wei Zou and Yunzhang Chen},
       year={2026},
